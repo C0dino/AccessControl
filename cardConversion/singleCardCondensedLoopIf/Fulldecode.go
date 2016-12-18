@@ -7,16 +7,27 @@ import (
 )
 
 func main() {
+
 	for {
 		var num1, num2 int64
+		var answer string
+
 		fmt.Print("Enter Facility Code: ")
 		fmt.Scan(&num1) // Prompts user for input
 		fac := dec2Hex(num1)
+
 		fmt.Print("Enter Card Code: ")
 		fmt.Scan(&num2) // Prompts user for input
 		cardCode := dec2Hex(num2)
-		fullDecode := hex2Dec(fac + cardCode)
+
+		fullDecode := hex2Dec(fac + cardCode) //concatenates strings fac + cardCode
 		fmt.Println("Fully Decoded Card Number is:", fullDecode)
+		fmt.Print("Continue? (y or n): ")
+		fmt.Scan(&answer)
+		if answer == "n" {
+			break
+		}
+		fmt.Println("--------------Next Card--------------")
 	}
 }
 

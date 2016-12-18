@@ -1,4 +1,4 @@
-package main
+package Fulldecode
 
 import (
 	"fmt"
@@ -7,6 +7,7 @@ import (
 )
 
 func main() {
+
 	for {
 		var num1, num2 int64
 		fmt.Print("Enter Facility Code: ")

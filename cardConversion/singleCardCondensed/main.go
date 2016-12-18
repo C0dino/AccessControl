@@ -2,21 +2,29 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
 )
 
 func main() {
-	var fac, cardCode int64
+	var num1, num2 int64
 	fmt.Print("Enter Facility Code: ")
-	fmt.Scan(&fac) // Prompts user for input
-	strconv.FormatInt(fac, 16)
-	fmt.Println(fac)
+	fmt.Scan(&num1) // Prompts user for input
+	fac := dec2Hex(num1)
 	fmt.Print("Enter Card Code: ")
-	fmt.Scan(&cardCode) // Prompts user for input
-	strconv.FormatInt(cardCode, 16)
-	fmt.Println(cardCode)
-	fullDecode := fac + cardCode
-	fmt.Println(fullDecode)
-	i, err := ParseInt(stringconv(fullDecode), 16, 0)
-	fmt.Println("Card Number is: ", i, err)
+	fmt.Scan(&num2) // Prompts user for input
+	cardCode := dec2Hex(num2)
+	fullDecode := hex2Dec(fac + cardCode)
+	fmt.Println("Fully Decoded Card Number is:", fullDecode)
+}
+
+func dec2Hex(i int64) string {
+	return strconv.FormatInt(i, 16)
+}
+func hex2Dec(s string) int64 {
+	i, err := strconv.ParseInt(s, 16, 0)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	return i
 }

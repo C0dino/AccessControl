@@ -8,6 +8,14 @@ import (
 
 func main() {
 
+	fmt.Println(`
+	========================================================================================
+	Welcome to the Card Decode Program.  Sometimes referred to as "long decode" this program
+	takes a facility code, a card code and returns the "fully decoded" number which will
+	show up in an Access control event log such as Lenel. (Good for EZ Pass Decodes)
+	========================================================================================
+	`)
+
 	for {
 		var num1, num2, moreCards int64
 		var answer, additionalDecode string
